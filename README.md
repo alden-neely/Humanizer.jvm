@@ -5,17 +5,17 @@ Humanizer.jvm meets all your jvm needs for manipulating and displaying strings, 
 
 The current build status on the CI server is [![status](http://teamcity.jetbrains.com/app/rest/builds/buildType:(id:HumanizerJvm_FullBuildandTests)/statusIcon)](http://teamcity.jetbrains.com/viewType.html?buildTypeId=HumanizerJvm_FullBuildAndTests&guest=1)
 
-# Table of contents
+# Table of Contents
  - [Features](#features)
    - [Humanize date](#humanize-date)
    - [Ordinalize](#ordinalize)
-   - [Truncate] (#truncate)
-   - [Inflector] (#inflector)
-   - [Number to words] (#numbertowords)
-   - [To quantity] (#toquantity)
-   - [Humanize] (#humanize)
-   - [DeHumanize] (#dehumanize)
-   - [Roman numerals] (#romannumerals)
+   - [Truncate](#truncate)
+   - [Inflector](#inflector)
+   - [Number to words](#numbertowords)
+   - [To quantity](#toquantity)
+   - [Humanize](#humanize)
+   - [DeHumanize](#dehumanize)
+   - [Roman numerals](#romannumerals)
 
 # <a id="features">Features</a>
 
@@ -57,7 +57,7 @@ cal.getTime().Humanize() => "2 hours from now"
 
 ## <a id="millisecondstotimespan">Milliseconds to timespan</a>
 
-### Extension method millisecondsToTimespan for Int and Long objects
+### Extension method *millisecondsToTimespan* for Int and Long objects
 
 Since difference between dates are returned as milliseconds this method turns them into a readable form/
  This is a naive implementation and does not account for leapseconds, this is the nature of this method.
@@ -73,7 +73,7 @@ Since difference between dates are returned as milliseconds this method turns th
 
 ## <a id="ordinalize">Ordinalize</a>
 
-### Extension method Ordinalize for Int objects
+### Extension method *ordinalize* for Int objects
 
 You can `Ordinalize` an instance of `Int` and get back a string with the ordinalized number:
 
@@ -84,7 +84,7 @@ num = 100
 num.ordinalize() => "100th"
 ```
 
-### Extension method Ordinalize for String objects
+### Extension method *ordinalize* for String objects
 
 You can `Ordinalize` an instance of `String` and get back a string with the ordinalized number:
 
@@ -97,7 +97,7 @@ num.ordinalize() => "100th"
 
 ## <a id="truncate">Truncate</a>
 
-### Extension method truncate for String objects
+### Extension method *truncate* for String objects
 
 You can `Truncate` an instance of `String` and get back a string truncated with … at the end if needed:
 
@@ -108,7 +108,7 @@ t = "longer text then the length"
 t.truncate(4) => "long…"
 ```
 
-### Extension method truncate for String objects with Truncator option
+### Extension method *truncate* for String objects with Truncator option
 
 You can `Truncate` an instance of `String` and get back a string truncated with … at the end if needed:
 Truncator Enum
@@ -143,7 +143,7 @@ t = "Text with more words than truncate length"
 t.truncate(4, truncator = Truncator.FixedNumberOfWords) => "Text with more words…"
 ```
 
-### Extension method truncate for String objects with TruncatorString option
+### Extension method *truncate* for String objects with TruncatorString option
 
 You can `Truncate` an instance of `String` and get back a string truncated with a custom string at the end if needed:
 
@@ -154,7 +154,7 @@ t = "Text with more words than truncate length"
 t.truncate(10, truncationsString = "...") => "Text wi..."
 ```
 
-### Extension method truncate for String objects with TruncatorString option
+### Extension method *truncate* for String objects with TruncatorString option
 
 You can `Truncate` an instance of `String` and get back a string truncated from the left:
 
@@ -169,7 +169,7 @@ Or you can use a combination of the above parameters length, truncationString, t
 
 ## <a id="inflector">Inflector</a>
 
-### Extension method camelize for String objects
+### Extension method *camelize* for String objects
 
 Replaces underscores with hyphens in as String
 
@@ -179,7 +179,7 @@ Decapitalizes first word and removes underscores while capitalizing the next let
 "customer_first_name".camelize() => "customerFirstName"
 ```
 
-### Extension method pascalize for String objects
+### Extension method *pascalize* for String objects
 
 Capitalizes first word and removes underscores while capitalizing the next letter in a String
 
@@ -187,7 +187,7 @@ Capitalizes first word and removes underscores while capitalizing the next lette
 "customer_first_name".pascalize() => "CustomerFirstName"
 ```
 
-### Extension method underscore for String objects
+### Extension method *underscore* for String objects
 
 Replaces spaces with underscores and makes everything lowercase or looks for capitalized words and replaces them with underscore and lowercase in a String
 
@@ -195,7 +195,7 @@ Replaces spaces with underscores and makes everything lowercase or looks for cap
 "SomeTitleThatWillBeUnderscored".underscore() => "some_title_that_will_be_underscored"
 ```
 
-### Extension method titleize for String objects
+### Extension method *titleize* for String objects
 
 Replaces underscores and dashes with spaces and capitalizes each word in a String
 
@@ -203,7 +203,7 @@ Replaces underscores and dashes with spaces and capitalizes each word in a Strin
 "some-title: The begining".titleize() => "Some Title: The Begining"
 ```
 
-### Extension method dasherize for String objects
+### Extension method *dasherize* for String objects
 
 Replaces underscores with dashes in a String.
 
@@ -211,7 +211,7 @@ Replaces underscores with dashes in a String.
 "some_title".dasherize() => "some-title"
 ```
 
-### Extension method hyphenate for String objects
+### Extension method *hyphenate* for String objects
 
 Replaces underscores with hyphens in a String.
 
@@ -219,7 +219,7 @@ Replaces underscores with hyphens in a String.
 "some_title".hyphenate() => "some-title"
 ```
 
-### Extension method pluralize for String objects
+### Extension method *pluralize* for String objects
 
 Gives the plural of a certain word.
 
@@ -230,7 +230,7 @@ Gives the plural of a certain word.
 "tests".pluralize(Plurality.CouldBeEither) => "tests"
 ```
 
-### Extension method singularize for String objects
+### Extension method *singularize* for String objects
 
 gives the singular of a certain word.
 
@@ -241,9 +241,9 @@ gives the singular of a certain word.
 "tests".singularize(Plurality.CouldBeEither) => "test"
 ```
 
-## <a id="numbertowords">Number to words</a>
+## <a id="numbertowords">Number to Words</a>
 
-### Extension method toWords for String objects
+### Extension method *toWords* for String objects
 
 Gives the value in words.
 
@@ -252,7 +252,7 @@ Gives the value in words.
 10.toWords() => "ten"
 ```
 
-### Extension method toOrdinalWords for String objects
+### Extension method *toOrdinalWords* for String objects
 
 Gives the value in ordinal words.
 
@@ -261,9 +261,9 @@ Gives the value in ordinal words.
 10.toOrdinalWords() => "tenth"
 ```
 
-## <a id="toquantity">To quantity</a>
+## <a id="toquantity">To Quantity</a>
 
-### Extension method toQuantity for String objects
+### Extension method *toQuantity* for String objects
 
 ```kotlin
 "case".toQuantity(1) => "1 case"
@@ -280,7 +280,7 @@ Gives the value in ordinal words.
 "cases".toQuantity(2, showAsQuantity = ShowQuantityAs.Words) => "two cases"
 ```
 
-### Extension method toQuantity for Int objects
+### Extension method *toQuantity* for Int objects
 
 ```kotlin
 1.toQuantity("case") => "1 case"
@@ -299,7 +299,7 @@ Gives the value in ordinal words.
 
 ## <a id="humanize">Humanize</a>
 
-### Extension method humanize for String objects
+### Extension method *humanize* for String objects
 
 Turns pascalcased strings into sentences.
 
@@ -319,17 +319,17 @@ Turns pascalcased strings into sentences.
 
 ## <a id="dehumanize">Dehumanize</a>
 
-### Extension method dehumanize for String objects
+### Extension method *dehumanize* for String objects
 
 Turns sentences into pascalcased strings.
 
 ```kotlin
-"Pascal case input string is turned into sentence".dehumanize() => "PascalCaseInputStringIsTurnedIntoSentencePascal case input string is turned into sentence"
+"Pascal case input string is turned into sentence".dehumanize() => "PascalCaseInputStringIsTurnedIntoSentencePascal"
 ```
 
-## <a id="romannumerals">RomanNumerals</a>
+## <a id="romannumerals">Roman Numerals</a>
 
-### Extension method toRoman for Int objects
+### Extension method *toRoman* for Int objects
 
 Turns an Int into Roman numeral. Limit from 1 to 3999.
 
@@ -344,7 +344,7 @@ Turns an Int into Roman numeral. Limit from 1 to 3999.
 Turns a Roman numeral into an Int. Limit from 1 to 3999.
 
 ```kotlin
-"I".toRoman() => 1
-"II".toRoman() => 2
-"IV".toRoman() => 4
+"I".fromRoman() => 1
+"II".fromRoman() => 2
+"IV".fromRoman() => 4
 ```
